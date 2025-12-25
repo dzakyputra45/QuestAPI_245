@@ -17,10 +17,7 @@ sealed interface StatusUiSiswa {
     object Loading : StatusUiSiswa
 }
 
-class HomeViewModel(
-    private val repositoryDataSiswa: RepositoryDataSiswa
-) : ViewModel() {
-
+class HomeViewModel(private val repositoryDataSiswa: RepositoryDataSiswa) : ViewModel() {
     var listSiswa: StatusUiSiswa by mutableStateOf(StatusUiSiswa.Loading)
         private set
 
@@ -32,8 +29,7 @@ class HomeViewModel(
         viewModelScope.launch {
             listSiswa = StatusUiSiswa.Loading
             listSiswa = try {
-                StatusUiSiswa.Success(
-                    repositoryDataSiswa.getDataSiswa()
+                StatusUiSiswa.Success(repositoryDataSiswa.getDataSiswa()
                 )
             } catch (e: IOException) {
                 StatusUiSiswa.Error
