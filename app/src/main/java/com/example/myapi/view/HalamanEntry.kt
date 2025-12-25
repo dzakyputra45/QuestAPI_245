@@ -138,7 +138,7 @@ fun FormTambahSiswa(
             value = detailSiswa.telpon,
             onValueChange = { onValueChange(detailSiswa.copy(telpon = it)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text(stringResource(R.string.telpon)) },
+            label = { Text(text = stringResource(R.string.telpon)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
@@ -156,7 +156,7 @@ fun FormTambahSiswa(
         Divider(
             thickness = dimensionResource(R.dimen.padding_small),
             modifier = Modifier
-                .padding(bottom = dimensionResource(id = R.dimen.padding_medium))
+                .padding(bottom = dimensionResource(R.dimen.padding_medium))
         )
     }
 }
